@@ -1,9 +1,8 @@
 args=commandArgs(trailingOnly=TRUE)
-data=read.csv(cat("/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/data/",args[1], sep=""))
+data=read.csv(paste("/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/data/",args[1], sep=""))
 
 #TV Histogram
 tv_summary=summary(data$TV)
-cat("TV Summary Statistics\n\n", file="/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/data/eda-output.txt")
 
 png(filename="/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/images/histogram-tv.png")
 hist(data$TV)
