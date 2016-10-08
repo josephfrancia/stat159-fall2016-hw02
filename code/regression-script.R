@@ -1,17 +1,17 @@
 args=commandArgs(trailingOnly=TRUE)
-#data=read.csv(paste("../data/",args[1], sep=""))
-reg_obj=lm(TV~Sales, data=data)
+data=read.csv(paste("../data/",args[1], sep=""))
+reg_obj=lm(Sales~TV, data=data)
 reg_summary=summary(reg_obj)
 
 #Saving plot as png
 png(filename="../images/scatterplot-tv-sales.png")
-plot(data$Sales, data$TV, main="Scatterplot with Regression Line", xlab="Sales", ylab="TV Advertisements")
+plot(data$TV, data$Sales, main="Scatterplot with Regression Line", xlab="TV Advertising Dollars Spent", ylab="Sales")
 abline(reg_obj)
 dev.off()
 
 #Saving plot as pdf
 pdf("../images/scatterplot-tv-sales.pdf")
-plot(data$Sales, data$TV, main="Scatterplot with Regression Line", xlab="Sales", ylab="TV Advertisements")
+plot(data$TV, data$Sales, main="Scatterplot with Regression Line", xlab="TV Advertising Dollars Spent", ylab="Sales")
 abline(reg_obj)
 dev.off()
 

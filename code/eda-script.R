@@ -5,22 +5,22 @@ data=read.csv(paste("../data/",args[1], sep=""))
 tv_summary=summary(data$TV)
 
 png(filename="../images/histogram-tv.png")
-hist(data$TV)
+hist(data$TV, main="Distribution of Dollar Amount Spent on TV Advertising")
 dev.off()
 
 pdf("../images/histogram-tv.pdf")
-hist(data$TV)
+hist(data$TV, main="Distribution of Dollar Amount Spent on TV Adverising")
 dev.off()
 
 #Sales Histogram
 summary(data$Sales)
 
 png(filename="../images/histogram-sales.png")
-hist(data$Sales)
+hist(data$Sales, main="Distribution of Sales")
 dev.off()
 
 pdf("../images/histogram-sales.pdf")
-hist(data$Sales)
+hist(data$Sales, main="Distribution of Sales")
 dev.off()
 
 
