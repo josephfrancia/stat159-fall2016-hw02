@@ -1,31 +1,31 @@
 args=commandArgs(trailingOnly=TRUE)
-data=read.csv(paste("/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/data/",args[1], sep=""))
+data=read.csv(paste("../data/",args[1], sep=""))
 
 #TV Histogram
 tv_summary=summary(data$TV)
 
-png(filename="/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/images/histogram-tv.png")
+png(filename="../images/histogram-tv.png")
 hist(data$TV)
 dev.off()
 
-pdf("/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/images/histogram-tv.pdf")
+pdf("../images/histogram-tv.pdf")
 hist(data$TV)
 dev.off()
 
 #Sales Histogram
 summary(data$Sales)
 
-png(filename="/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/images/histogram-sales.png")
+png(filename="../images/histogram-sales.png")
 hist(data$Sales)
 dev.off()
 
-pdf("/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/images/histogram-sales.pdf")
+pdf("../images/histogram-sales.pdf")
 hist(data$Sales)
 dev.off()
 
 
 #Sales and TV textfiles
-sink(file="/Users/josephfrancia/Desktop/Fall_2016/Stats159/stat159-fall2016-hw02/data/eda-output.txt")
+sink(file="../data/eda-output.txt")
 summary(data$TV)
 summary(data$Sales)
 sink()

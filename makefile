@@ -13,7 +13,7 @@ eda-output.txt: code/eda-script.R data/Advertising.csv
 	cd code; Rscript eda-script.R Advertising.csv
 
 clean: 
-	cd report; rm report.pdf; rm report.Rmd
+	cd report; rm report.pdf
 
 data: 
 	cd data; curl -O "http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv"
