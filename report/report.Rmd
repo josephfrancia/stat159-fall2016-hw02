@@ -1,5 +1,5 @@
 ---
-title: "Report.Rmd"
+title: "Multiple Least Squares Regression Report"
 output: pdf_document
 ---
 
@@ -25,7 +25,7 @@ Stats 159
 
 #Data
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before we have a discussion on how advertising (our explanatory variables) interacts with sales (our response variable) through linear regression, lets first take a look at a correlation matrix between all four of our variables. An entry in a correlation matrix details the level of correlation between two variables. It turns out that all of our variables are positively correlated with each other to varying degrees. The strongest correlation (.782) exists between sales and television advertising. Meanwhile, the weakest correlation (.054) exists between television and newspaper advertising. I've shown the correlation matrix below: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Before we have a discussion on how advertising (our explanatory variables) interacts with sales (our response variable) through linear regression, lets first take a look at a correlation matrix between all four of our variables. An entry in a correlation matrix details the level of correlation between two variables. It turns out that all of our variables are positively correlated with each other to varying degrees. The strongest correlation (.782) exists between sales and television advertising. Meanwhile, the weakest correlation (.054) exists between television and newspaper advertising. These results seem to suggest that television advertising could be quite useful in predicting the response. The correlation matrix also seems to suggest that newspaper advertising might not help much in explaining our response variable. I've shown the correlation matrix below: 
 
 
 ```{r corr_mat, echo=FALSE}
@@ -64,9 +64,14 @@ Value=c(summary(model)$sigma, summary(model)$r.squared, as.numeric(summary(model
 df=data.frame(Quantity, Value)
 df
 ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So what do these values tell us? For one, the R-Squared of .8972 is fairly close to 1, and this tells us our explanatory variables do a fairly good job of explaining the variation in our response. In other words, our model fits the data pretty well. Meanwhile, the RSE value of 1.685 is quite small and indicates that our predictions are fairly accurate and do not deviate very much from our response values. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Because this multiple least squares regression has more than two explanatory variables, there isn't a way to show the regression line in a two or three dimensional space. As a result, I've shown below a pairwise scatterplot below that demonstrates all of the possible two dimensional scatterplots that could have been constructed from the dataset.
+
+\includegraphics[width=600pt, height=300pt]{../images/scatterplot-matrix.png}
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Because this multiple least squares regression has more than two explanatory variables, there isn't a way to show the regression line in a two or three dimensional space. As a result, I've shown a pairwise scatterplot below that demonstrates all of the possible two dimensional scatterplots that could have been constructed from the dataset. In addition, I've attached coefficient estimates of these simple least squares regression model.
+In addition, I've attached coefficient estimates of these simple least squares regression model.
 
 ```{r tv_reg, echo=FALSE}
 print("Summary of TV Advertising Regression")
@@ -83,7 +88,6 @@ print("Summary of Newspaper Advertising Regression")
 reg_summary_news[4]
 ```
 
-\includegraphics[width=600pt, height=300pt]{../images/scatterplot-matrix.png}
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The above visual shows a pretty clear positive relationship between all advertising spending and sales. The scatterplot that shows the strong positive relationship between sales and newspaper advertising, however, seems to contradict our findings from our multiple least squares regression, which finds a negative relationship between the two variables. Surprisingly, it is fairly common for beta coefficients of variables to change when new variables are added into the regression. For instance, newspaper advertising could be strongly correlated with both tv and radio advertising. As a result, in our Sales~Newspaper regression, the positive relationship between the two variables may actually just come from radio and tv advertising, which do not show up in the regression.  
 

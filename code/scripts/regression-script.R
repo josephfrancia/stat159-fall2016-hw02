@@ -33,7 +33,7 @@ dev.off()
 
 
 #Saving radio plot as png
-png(filename="../../images/scatterplot-Radio-sals.png")
+png(filename="../../images/scatterplot-Radio-sales.png")
 plot(data$Radio, data$Sales, main="Scatterplot with Regression Line", xlab="Radio Advertising Dollars Spent", ylab="Sales")
 abline(reg_obj_radio)
 dev.off()
